@@ -1,0 +1,70 @@
+# ============================================================================
+# Network Device Inventory
+# Groups devices by role/vendor with connection defaults
+# ============================================================================
+
+groups:
+  core_switches:
+    defaults:
+      device_type: cisco_ios
+      port: 22
+      timeout: 30
+    devices:
+      - hostname: core-sw-01
+        host: 10.0.0.1
+        description: "Core switch - DC1 Rack A"
+      - hostname: core-sw-02
+        host: 10.0.0.2
+        description: "Core switch - DC1 Rack B"
+
+  distribution_switches:
+    defaults:
+      device_type: cisco_ios
+      port: 22
+      timeout: 30
+    devices:
+      - hostname: dist-sw-01
+        host: 10.0.1.1
+        description: "Distribution - Floor 1"
+      - hostname: dist-sw-02
+        host: 10.0.1.2
+        description: "Distribution - Floor 2"
+      - hostname: dist-sw-03
+        host: 10.0.1.3
+        description: "Distribution - Floor 3"
+
+  firewalls:
+    defaults:
+      device_type: cisco_ios
+      port: 22
+      timeout: 60
+    devices:
+      - hostname: fw-edge-01
+        host: 10.0.254.1
+        description: "Edge firewall - Primary"
+      - hostname: fw-edge-02
+        host: 10.0.254.2
+        description: "Edge firewall - Secondary"
+
+  arista_spine:
+    defaults:
+      device_type: arista_eos
+      port: 22
+      timeout: 30
+    devices:
+      - hostname: spine-01
+        host: 10.10.0.1
+        description: "Arista spine - Leaf-Spine Fabric"
+      - hostname: spine-02
+        host: 10.10.0.2
+        description: "Arista spine - Leaf-Spine Fabric"
+
+  wireless_controllers:
+    defaults:
+      device_type: cisco_ios
+      port: 22
+      timeout: 45
+    devices:
+      - hostname: wlc-01
+        host: 10.0.200.1
+        description: "Wireless LAN Controller"
